@@ -5,4 +5,4 @@
 .vscode
 .idea
 
-docker-compose.yml
+docker-compose-dev.yml

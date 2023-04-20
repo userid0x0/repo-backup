@@ -10,6 +10,7 @@ Backup Subversion (future git) Repositories using rclone.
 - [GitHub](https://github.com/userid0x0/repo-backup)
 
 The container is heavily inspired by [ttionya/vaultwarden-backup](https://github.com/ttionya/vaultwarden-backup) and offers the same usage.
+Might be used in conjunction with [userid0x0/svn-docker](https://github.com/userid0x0/svn-docker).
 
 ## Feature
 

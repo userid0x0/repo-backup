@@ -9,22 +9,18 @@ Backup Subversion (future git) Repositories using rclone.
 - [Docker Hub](https://hub.docker.com/r/userid0x0/repo-backup)
 - [GitHub](https://github.com/userid0x0/repo-backup)
 
-The scripts are heavily inspired by [ttionya/vaultwarden-backup](https://github.com/ttionya/vaultwarden-backup) and offer the same usage.
+The container is heavily inspired by [ttionya/vaultwarden-backup](https://github.com/ttionya/vaultwarden-backup) and offers the same usage.
 
 ## Feature
 
 This tool supports backing up exports of the following repository types
 
-- `svn`
+- Subversion/SVN
 
 And the following ways of notifying backup results are supported.
 
 - Ping (only send on success)
 - Mail (SMTP based, send on success and on failure)
-
-<br>
-
-
 
 ## Usage
 
@@ -97,6 +93,39 @@ docker run -d \
   --name repo_backup \
   --mount type=volume,source=rclone-data,target=/config/ \
   userid0x0/repo-backup:latest
+```
+
+## Repository Configuration
+### Subversion/SVN
+To configure Subversion repositories to backup, use the environment variables
+
+- `SVN_REPO_NAME_N` name of the repository, name will be part of the backup file `svn_<SVN_REPO_NAME_N>.<>.<zip|7z>`
+- `SVN_REPO_URL_N` url of the repository e.g. `http://svn.local/svn/repo/trunk`
+- [optional]`SVN_REPO_USERNAME_N` SVN Credentials Username
+- [optional]`SVN_REPO_PASSWORD_N` SVN Credentials Password in plaintext
+
+, where:
+
+- `N` is a serial number, starting from 0 and increasing consecutively for each additional destination
+- `SVN_REPO_NAME_N` and `SVN_REPO_URL_N` cannot be empty
+
+Note that if the serial number is not consecutive or the value is empty, the script will break parsing the environment variables for Subversion repositories.
+
+#### Example
+Backup repository `docs/trunk` from server `svn.local` using `http://`.
+
+```yml
+...
+environment:
+  # no username/password
+  SVN_REPO_NAME_0: documentation-trunk
+  SVN_REPO_URL_0: http://svn.local/svn/docs/trunk
+  # with username/password
+  SVN_REPO_NAME_0: documentation-trunk
+  SVN_REPO_URL_0: http://svn.local/svn/docs/trunk
+  SVN_REPO_USERNAME_0: <username>
+  SVN_REPO_PASSWORD_0: <password>
+...
 ```
 
 ## Environment Variables

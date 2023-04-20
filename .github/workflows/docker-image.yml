@@ -32,5 +32,4 @@ jobs:
         context: .
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: latest
-        labels: ${{ secrets.DOCKERHUB_USERNAME }}/repo-backup
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/repo-backup:latest

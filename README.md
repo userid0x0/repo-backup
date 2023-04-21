@@ -16,7 +16,8 @@ Might be used in conjunction with [userid0x0/svn-docker](https://github.com/user
 
 This tool supports backing up exports of the following repository types
 
-- Subversion/SVN
+- [x] Subversion/SVN
+- [ ] Git
 
 And the following ways of notifying backup results are supported.
 

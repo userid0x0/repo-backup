@@ -12,7 +12,7 @@ COPY scripts/*.sh /app/
 
 RUN chmod +x /app/*.sh \
   && mkdir -m 777 /repo \
-  && apk add --no-cache 7zip bash heirloom-mailx subversion supercronic tzdata \
+  && apk add --no-cache 7zip bash subversion supercronic s-nail tzdata \
   && ln -sf "${LOCALTIME_FILE}" /etc/localtime \
   && addgroup -g "${USER_ID}" "${USER_NAME}" \
   && adduser -u "${USER_ID}" -Ds /bin/sh -G "${USER_NAME}" "${USER_NAME}"

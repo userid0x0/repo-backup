@@ -224,7 +224,7 @@ Use [healthcheck.io](https://healthchecks.io/) url or similar cron monitoring to
 
 #### MAIL_SMTP_ENABLE
 
-The tool uses [heirloom-mailx](https://heirloom.sourceforge.net/mailx.html) to send mail.
+Starting from July 2023 we will be using [`s-nail`](https://www.sdaoden.eu/code-nail.html) instead of [`heirloom-mailx`](https://www.systutorials.com/docs/linux/man/1-heirloom-mailx/) to send emails.
 
 Default: `FALSE`
 

@@ -278,9 +278,9 @@ function get_svn_list() {
         SVN_ARGS_X="${SVN_ARGS_X} ${!SVN_REPO_URL_X_REFER}"
         SVN_ARGS_INFO_X="${SVN_ARGS_INFO_X} ${!SVN_REPO_URL_X_REFER}"
 
-        SVN_NAME_LIST=(${SVN_NAME_LIST[@]} "${!SVN_REPO_NAME_X_REFER}")
-        SVN_ARGS_LIST=(${SVN_ARGS_LIST[@]} "${SVN_ARGS_X}")
-        SVN_ARGS_INFO_LIST=(${SVN_ARGS_INFO_LIST[@]} "${SVN_ARGS_INFO_X}")
+        SVN_NAME_LIST+=("${!SVN_REPO_NAME_X_REFER}")
+        SVN_ARGS_LIST+=("${SVN_ARGS_X}")
+        SVN_ARGS_INFO_LIST+=("${SVN_ARGS_INFO_X}")
 
         ((i++))
     done

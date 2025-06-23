@@ -1,4 +1,4 @@
-FROM rclone/rclone:1.69.3
+FROM rclone/rclone:1.70.1
 
 LABEL "repository"="https://github.com/userid0x0/repo-backup" \
   "homepage"="https://github.com/userid0x0/repo-backup"
